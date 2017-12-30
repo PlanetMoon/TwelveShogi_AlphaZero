@@ -29,7 +29,7 @@ def start_play(board, player1, player2, startPlayer=0):
     while(1):
         currentPlayer = board.curStepColor
         playerInTurn = players[currentPlayer]
-        move = playerInTurn.get_action(self.board)
+        move = playerInTurn.get_action(board)
         result = board.doMove(move)
         if result > 0:
             if result == p1 + 1:
