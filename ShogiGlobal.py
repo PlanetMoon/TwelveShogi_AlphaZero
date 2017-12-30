@@ -31,6 +31,14 @@ def writeErrorLog(log):
     # print('Write Log: ' + log)
     file.close()
 
+def writeTrainingLog(log):
+    '''
+    Write training logs
+    '''
+    file = open('training.log', 'a')
+    file.write(log + '\n')
+    file.close()
+
 # Load Image for ShogiMan
 def load_image(name, colorfilter=0xffffff):    
     try:
