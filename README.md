@@ -7,6 +7,6 @@ This project is based on these main resources:
 2) The <b>great</b> Gomoku development of the DeepMind ideas that @junxiaosong did in his repo: https://github.com/junxiaosong/AlphaZero_Gomoku
 3) The <b>wonderful</b> Chess development of the DeepMind ideas that @Zeta36 did in his repo:
 https://github.com/Zeta36/chess-alpha-zero/
-4) The <b>great</b> Reversi development of the DeepMind ideas that @mokemokechicken did in his repo: https://github.com/mokemokechicken/reversi-alpha-zero
+4) The <b>brilliant</b> Reversi development of the DeepMind ideas that @mokemokechicken did in his repo: https://github.com/mokemokechicken/reversi-alpha-zero
 5) DeepMind just released a new version of AlphaGo Zero (named now AlphaZero) where they master chess from scratch: 
 https://arxiv.org/pdf/1712.01815.pdf.
