@@ -56,7 +56,7 @@ def start_self_play(board, player, temp=1e-3):
         print("train-start_self_play: curColor = %d, moveCounts = %d" % (board.curStepColor, moveCounts))
         move, moveProbs = player.get_action(board, temp=temp, return_prob=1)
         writeTrainingLog("train-start_self_play: curColor = %d, moveCounts = %d" % (board.curStepColor, moveCounts))
-        writeTrainingLog("train-start_self_play: move = %d %d %d %d" % (move // 72, move % 72 // 12, move % 12 // 3, move % 12 % 3))
+        writeTrainingLog("train-start_self_play: move = %d %d %d %d %d" % (board.board[move//72, move % 72].kind, move // 72, move % 72 // 12, move % 12 // 3, move % 12 % 3))
         # store the data
         states.append(board.currentState())
         mctsProbs.append(moveProbs)
