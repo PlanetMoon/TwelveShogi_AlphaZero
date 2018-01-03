@@ -38,3 +38,4 @@ Hou(侯): can go any direction except SW and SE for up color.
 
 Tips: every shogiman has little pots in the pictures which represent the directions where the shogiman can move to.
 
+The game is end when the Wang is catched by the other player or the Wang reached the opposite colored area and live for a round or tie when 40 moves are taken by two players together(I defined it, can be changed).
