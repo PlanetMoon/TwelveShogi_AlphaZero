@@ -18,7 +18,7 @@ https://arxiv.org/pdf/1712.01815.pdf.
 
 TwelveShogi comes from the TV series -- The Genius:_Black_Garnet (https://en.wikipedia.org/wiki/The_Genius:_Black_Garnet) in which named as "Twelve Jangqi". The board is looked like follows:
 
-![image](http://github.com/PlanetMoon/TwelveShogi_AlphaZero/raw/master/BMP/board_snapshot.jpg)
+![image](http://github.com/PlanetMoon/TwelveShogi_AlphaZero/tree/master/BMP/board_snapshot.jpg)
 
 The rules list as follows:
 
