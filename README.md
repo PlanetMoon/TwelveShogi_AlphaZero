@@ -39,3 +39,23 @@ Hou(侯): can go any direction except SW and SE for up color.
 Tips: every shogiman has little pots in the pictures which represent the directions where the shogiman can move to.
 
 The game is end when the Wang is catched by the other player or the Wang reached the opposite colored area and live for a round or tie when 40 moves are taken by two players together(I defined it, can be changed).
+
+# Usage
+## Training
+python train.py
+
+Tips: I don't have a computer with an available GPU for deep training. Therefore, it's very slow for me to train a model. It's strongly recommended that use a GPU to train this model.
+
+## Play
+with yourself or another person: python TwelveShogi.py -c [0 or 1] -m 0
+
+with computer(after you trained a model): python TwelveShogi.py -c [0 or 1] -m 1
+
+watch computer selfplay(after you trained a model and maybe a lot of bugs): python TwelveShogi.py -c [0 or 1] -m 2
+
+# Requirments
+
+Python >= 2.7
+Numpy >= 1.11
+Theano >= 0.7
+Lasagne >= 0.1
