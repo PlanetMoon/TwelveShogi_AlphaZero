@@ -1,5 +1,8 @@
 # TwelveShogi_AlphaZero
 
+### Author
+* Xingye Xu
+
 Training is in progress.
 
 A simplified version of Shogi with the AI is trained by alpha-zero-type training method
