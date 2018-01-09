@@ -22,25 +22,32 @@ def start_play(board, player1, player2, startPlayer=0):
     board.resetBoard()
     if startPlayer not in (0,1):
         raise Exception('startPlayer should be 0 (up) or 1 (down)')
-    board.curStepColor = startPlayer
     p1 = startPlayer
     p2 = 1 - startPlayer
+    if p1:
+        print("train-start_play: startPlayer is pure mcts")
+    else:
+        print("train-start_play: startPlayer is mcts")
     player1.set_player_ind(p1)
     player2.set_player_ind(p2)
-    players = {p1: player1, p2:player2}
+    players = {p1: player1, p2: player2}
+    board.printBoard()
     while(1):
         currentPlayer = board.curStepColor
         playerInTurn = players[currentPlayer]
         move = playerInTurn.get_action(board)
         result = board.doMove(move)
+        board.printBoard()
         if result > 0:
             if result == p1 + 1:
+                print("train-start_play: winner is p1")
                 return 1
             elif result == p2 + 1:
+                print("train-start_play: winner is p2")
                 return 2
             else:
-                return 0
-            
+                print("train-start_play: tie")
+                return 0           
             
 def start_self_play(board, player, temp=1e-3):
     """ start a self-play game using a MCTS player, reuse the search tree
@@ -149,6 +156,7 @@ class TrainPipeline():
         pure_mcts_player = MCTS_Pure(c_puct=5, n_playout=self.pure_mcts_playout_num)
         win_cnt = defaultdict(int)
         for i in range(n_games):
+            print("train-policy_evaluate: game = %d" % (i))
             winner = start_play(self.board, current_mcts_player, pure_mcts_player, startPlayer=i%2)
             win_cnt[winner] += 1
         win_ratio = 1.0*(win_cnt[1] + 0.5*win_cnt[0])/n_games
