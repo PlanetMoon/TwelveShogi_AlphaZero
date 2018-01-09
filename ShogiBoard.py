@@ -73,6 +73,27 @@ class ShogiBoard:
                         (1, 1):ShogiMan(SHOGIMAN_KIND_ZI, SHOGIMAN_COLOR_DOWN, 1, 1), \
                         }
 
+    def printBoard(self):
+        '''
+        print the board on the terminal
+        '''
+        showBoard = np.zeros([6, 6])
+        showBoard.fill(-1)
+        for key in self.board.keys():
+            shogiman = self.board[key]
+            if shogiman == None:
+                continue
+            if shogiman.row <= 4 and shogiman.row >= 0:
+                showBoard[shogiman.row + 1][shogiman.col] = shogiman.color * 8 + shogiman.kind
+            elif shogiman.row == SHOGIBOARD_PRISON_ROW_DOWN:
+                showBoard[0][shogiman.col] = shogiman.color * 8 + shogiman.kind
+        print("###############")
+        for i in range(6):
+            for j in range(6):
+                print("{}\t".format(SHOGIMAN_NAMELIST[showBoard[i][j]]), end = "")
+            print("")
+        print("###############")
+
     def redrawBoard(self, window):
         '''
         draw the board again
