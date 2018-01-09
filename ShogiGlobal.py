@@ -22,6 +22,9 @@ SHOGIMAN_KIND_CATCHED_JIANG = 5
 SHOGIMAN_KIND_CATCHED_XIANG = 6
 SHOGIMAN_KIND_CATCHED_ZI = 7
 
+SHOGIMAN_NAMELIST = {-1: "0", 0:"UW", 1:"UJ", 2:"UX", 3:"UZ", 4:"UH", 5:"UCJ", 6:"UCX", 7:"UCZ",\
+                     8:"DW", 9:"DJ", 10:"DX", 11:"DZ", 12:"DH", 13:"DCJ", 14:"DCX", 15:"DCZ"}
+
 def writeErrorLog(log):
     '''
     Write error logs
