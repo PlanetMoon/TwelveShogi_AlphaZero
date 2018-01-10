@@ -205,7 +205,6 @@ class MCTSPlayer(object):
                 move = np.random.choice(acts, p=probs)       
                 # reset the root node
                 self.mcts.update_with_move(-1)             
-            print("mcts-get_action: move = %d %d %d %d" % (move // 72, move % 72 // 12, move % 12 // 3, move % 12 % 3))
             if return_prob:
                 return move, move_probs
             else:
