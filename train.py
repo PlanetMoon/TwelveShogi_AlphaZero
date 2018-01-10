@@ -81,7 +81,7 @@ def start_self_play(board, player, temp=1e-3):
                 winner = 0
             #reset MCTS root node
             player.reset_player() 
-            return winner, zip(states, mctsProbs, winners_z)
+            return winner, moveCounts, zip(states, mctsProbs, winners_z)
             
 class TrainPipeline():
     def __init__(self):
@@ -117,9 +117,9 @@ class TrainPipeline():
     def collect_selfplay_data(self, n_games=1):
         """collect self-play data for training"""
         for i in range(n_games):
-            winner, play_data = start_self_play(self.board, self.mcts_player, temp=self.temp)
+            winner, stepCounts, play_data = start_self_play(self.board, self.mcts_player, temp=self.temp)
             print("train-collect_selfplay_data: winner = %d" % winner)
-            self.episode_len = len(list(play_data)) 
+            self.episode_len = stepCounts 
             self.data_buffer.extend(play_data)
                         
     def policy_update(self):
@@ -174,6 +174,7 @@ class TrainPipeline():
                 self.collect_selfplay_data(self.play_batch_size)
                 print("batch i:{}, episode_len:{}".format(i+1, self.episode_len))
                 writeTrainingLog("batch i:{}, episode_len:{}".format(i+1, self.episode_len))
+                print("train-run: len of data_buffer = {}".format(len(self.data_buffer)))
                 if len(self.data_buffer) > self.batch_size:
                     loss, entropy = self.policy_update()                    
                 # check the performance of the current model，and save the model params
